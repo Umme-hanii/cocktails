@@ -6,9 +6,9 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>Vodka</td>
-            <td>Here are some instructions</td>
+        <tr *ngFor="let drink of drinks">
+            <td>{{drink['strDrink'] }}</td>
+            <td>{{ drink['strInstructions'] }}</td>
         </tr>
     </tbody>
 </table>

@@ -16,7 +16,7 @@ export class FormComponent implements OnInit {
   }
 
   onSubmit(e: Event) {
-    e.stopPropagation()
+    e.preventDefault()
     this.submitted.emit(this.query)
   }
 }
