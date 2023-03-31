@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { CocktailResponse } from '../cocktail.service';
 
 @Component({
   selector: 'app-results',
@@ -7,11 +8,21 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ResultsComponent implements OnInit {
 
-  @Input() drinks = []
+  @Input() drinks: Array<CocktailResponse> = []
+  @Input() query = ''
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  boldStr(str: string) {
+    if (this.query.length < 3) {
+      return str;
+    }
+
+    const reg = new RegExp('(' + this.query + ')', 'gi');
+    return str.replace(reg, '<span class="font-weight-bold">$1</span>');
   }
 
 }

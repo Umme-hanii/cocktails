@@ -5,12 +5,14 @@ import { HttpClientModule } from '@angular/common/http'
 import { AppComponent } from './app.component';
 import { FormComponent } from './form/form.component';
 import { ResultsComponent } from './results/results.component';
+import { BoldPipe } from './bold.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormComponent,
-    ResultsComponent
+    ResultsComponent,
+    BoldPipe
   ],
   imports: [
     BrowserModule,

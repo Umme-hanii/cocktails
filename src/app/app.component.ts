@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CocktailService } from './cocktail.service';
+import { CocktailResponse, CocktailService } from './cocktail.service';
 
 @Component({
   selector: 'app-root',
@@ -7,13 +7,16 @@ import { CocktailService } from './cocktail.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  drinks = []
+  query = ''
+  drinks: Array<CocktailResponse> = []
 
   constructor(private cocktail: CocktailService) {}
 
   search(query: string) {
-    this.cocktail.search(query).subscribe((response:any) => {
-      this.drinks = response.drinks
+    this.query = query
+    this.cocktail.search(query).subscribe((response: any) => {
+      console.log(response)
+      this.drinks = response
     })
   }
 }
